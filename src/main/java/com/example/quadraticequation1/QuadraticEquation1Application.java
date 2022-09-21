@@ -15,7 +15,6 @@ public class QuadraticEquation1Application {
         SpringApplication.run(QuadraticEquation1Application.class, args);
     }
 
-
     @GetMapping("/equation")
     public String calculate(@RequestParam(value = "myA") String a,
                            @RequestParam( value = "myB") String b,

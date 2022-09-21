@@ -26,7 +26,7 @@ public class CalculateQuadraticEquationImpl implements CalculateQuadraticEquatio
 
     private String findRoots(String a, String b, String c){
 
-        Double numA, numB, numC;
+        double numA, numB, numC;
         try {
             numA = Double.parseDouble(a);
             numB = Double.parseDouble(b);
@@ -36,7 +36,7 @@ public class CalculateQuadraticEquationImpl implements CalculateQuadraticEquatio
             return "Invalid numbers. Please enter integer number for each.";
         }
 
-        Double discriminant  = numB*numB - 4*numA*numC;
+        double discriminant  = numB*numB - 4*numA*numC;
         Double memberOne = (-numB / (2 * numA));
 
         if (discriminant==0){
