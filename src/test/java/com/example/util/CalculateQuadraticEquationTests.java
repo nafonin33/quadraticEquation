@@ -8,7 +8,7 @@ public class CalculateQuadraticEquationTests {
 
     @BeforeEach
     void setUp() {
-        calculateQuadraticEquation = new CalculateQuadraticEquation();
+        calculateQuadraticEquation = new CalculateQuadraticEquationImpl();
     }
 
     @Test
@@ -17,7 +17,8 @@ public class CalculateQuadraticEquationTests {
     void testEquations() {
         Assertions.assertEquals("-1.00+1.41421i, -1.00-1.41421i", calculateQuadraticEquation.calculate("1", "2", "3"), "Calculated wrong");
         Assertions.assertEquals("7.31662, 0.68338", calculateQuadraticEquation.calculate("1", "-8", "5"), "Calculated wrong");
-        Assertions.assertEquals("−2.00+1.54919i, −2.00−1.54919i", calculateQuadraticEquation.calculate("5", "20", "32"), "Calculated wrong");
+        Assertions.assertEquals("-2.00+1.54919i, -2.00-1.54919i", calculateQuadraticEquation.calculate("5", "20", "32"), "Calculated wrong");
+        Assertions.assertEquals("-0.04924, -1333.28409", calculateQuadraticEquation.calculate("900", " 1200000", "59087"), "Calculated wrong");
 
     }
 }

@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 
 public class ValueValidation {
 
-    private Pattern pattern = Pattern.compile("[+-]?\\d+?");
+    private final Pattern pattern = Pattern.compile("[+-]?\\d+?");
 
     public String validate(String strNum, String name) {
        String message = "";
@@ -27,17 +27,11 @@ public class ValueValidation {
        try{
             checkNumber(strNum, name);
         }
-       catch (EmptyValueException e) {
-           message = e.getMessage() + name + e.toString();
-       }
-       catch (NotValidValueException e) {
-           message = e.getMessage() + name + e.toString();
-       }
-       catch (ZeroValueException e) {
-           message = e.getMessage() + name + e.toString();
+       catch (EmptyValueException | NotValidValueException | ZeroValueException e) {
+           message = e.getMessage() + name + e;
        }
 
-       return message;
+        return message;
     }
 
     public void checkNumber(String strNum, String name) throws EmptyValueException, ZeroValueException, NotValidValueException {
@@ -46,7 +40,7 @@ public class ValueValidation {
             throw new EmptyValueException("Can not calculate the equation: ");
         }
 
-        if (!pattern.matcher(strNum).matches()){
+        if (!pattern.matcher(strNum.trim()).matches()){
             throw new NotValidValueException("Can not calculate the equation: ");
         }
 
